@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/backbone/backbone.js"></script>
+
+  <title>Photo Album</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  <script type="text/javascript" src="scripts/photoData.js"></script>
+  <script type="text/javascript" src="scripts/models/PhotoModel.js"></script>
+  <script type="text/javascript" src="scripts/models/AppModel.js"></script>
+  <script type="text/javascript" src="scripts/collections/PhotoList.js"></script>
+  <script type="text/javascript" src="scripts/views/PhotoListView.js"></script>
+  <script type="text/javascript" src="scripts/views/PhotoListEntryView.js"></script>
+  <script type="text/javascript" src="scripts/views/ImageDisplayView.js"></script>
+  <script type="text/javascript" src="scripts/views/AppView.js"></script>
+  
+  <h1>Photo Album App</h1>
+
+  <script>
+ 	$(function () {
+
+  		var photoList = new PhotoList(photoData);
+  		var app = new AppModel({photoList: photoList});
+
+  		var appView = new AppView({model: app});
+
+  		$('body').append(appView.render());
+
+  	});
+  </script>
+</body>
+</html>
